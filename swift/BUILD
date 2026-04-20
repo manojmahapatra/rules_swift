@@ -15,15 +15,12 @@ licenses(["notice"])
 bzl_library(
     name = "extensions",
     srcs = ["extensions.bzl"],
-    deps = [":repositories"],
-)
-
-bzl_library(
-    name = "repositories",
-    srcs = ["repositories.bzl"],
     deps = [
-        "//doc:bazel_tools_bzl",
-        "//swift/internal:swift_autoconfiguration",
+        "//swift/internal:repositories",
+        "//swift/internal/extensions:standalone_toolchain",
+        "//swift/internal/extensions:swift_releases",
+        "//swift/internal/extensions:toolchains",
+        "@bazel_features//:features",
     ],
 )
 
@@ -230,7 +227,7 @@ bzl_library(
 
 bzl_library(
     name = "swift_module_mapping_test",
-    srcs = ["swift_module_mapping_test.bzl"],
+    srcs = ["swift_module_mapping_test.bzl"],  # keep
     deps = [
         ":providers",
         "//swift/internal:providers",
@@ -294,7 +291,7 @@ bzl_library(
 
 bzl_library(
     name = "swift_test",
-    srcs = ["swift_test.bzl"],
+    srcs = ["swift_test.bzl"],  # keep
     deps = [
         ":module_name",
         ":providers",
